@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Landing Page</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(6px);
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+color:white;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:650px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.hero button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+background:#ff6b00;
+color:white;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+.hero button:hover{
+background:#ff8c33;
+}
+
+/* FEATURES */
+
+.features{
+padding:100px 40px;
+background:#f5f5f5;
+text-align:center;
+}
+
+.features h2{
+font-size:36px;
+margin-bottom:60px;
+}
+
+.feature-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:30px;
+width:280px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* CTA */
+
+.cta{
+background:
+linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+text-align:center;
+color:white;
+}
+
+.cta h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.cta button{
+padding:15px 40px;
+font-size:18px;
+border:none;
+background:#00c896;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+padding:15px 20px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.feature-container{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2>TechLaunch 🚀</h2>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Features</a></li>
+<li><a href="#">Join</a></li>
+</ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<h1>Learn Modern Tech Skills</h1>
+
+<p>
+Master web development, blockchain, and digital skills that can transform your career.
+</p>
+
+<br>
+
+<button onclick="startJourney()">Start Learning</button>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2>Why Choose Us</h2>
+
+<div class="feature-container">
+
+<div class="card">
+<h3>⚡ Fast Learning</h3>
+<p>Practical tutorials designed for beginners.</p>
+</div>
+
+<div class="card">
+<h3>👨‍💻 Real Projects</h3>
+<p>Build projects that prepare you for real jobs.</p>
+</div>
+
+<div class="card">
+<h3>🌍 Global Skills</h3>
+<p>Learn skills needed in the global tech industry.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Start Your Tech Journey Today</h2>
+
+<p>Join thousands of students learning digital skills.</p>
+
+<br>
+
+<button onclick="joinProgram()">Join Now</button>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 TechLaunch. All Rights Reserved.</p>
+
+</footer>
+
+
+<script>
+
+/* BUTTON ACTIONS */
+
+function startJourney(){
+alert("Welcome 🚀 Your tech journey begins!");
+}
+
+function joinProgram(){
+alert("Registration opening soon 🎉");
+}
+
+
+/* SCROLL ANIMATION */
+
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+
+const triggerBottom = window.innerHeight * 0.85;
+
+cards.forEach(card => {
+
+const cardTop = card.getBoundingClientRect().top;
+
+if(cardTop < triggerBottom){
+card.classList.add('show');
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
